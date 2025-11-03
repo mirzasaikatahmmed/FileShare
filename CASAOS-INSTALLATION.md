@@ -34,7 +34,7 @@ php8.2-curl php8.2-zip php8.2-gd php8.2-bcmath php8.2-intl php8.2-sqlite3
 cd /var/www/
 
 # Clone the repository (or upload your files)
-sudo git clone <your-repository-url> fileshare
+sudo git clone https://github.com/mirzasaikatahmmed/FileShare.git fileshare
 # OR if you have files locally, upload via SFTP to /var/www/fileshare
 
 # Set ownership
