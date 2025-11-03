@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#grad)"/>
+
+  <!-- Folder Icon -->
+  <path d="M30 35 L40 35 L45 30 L70 30 L70 70 L30 70 Z"
+        fill="#ffffff"
+        opacity="0.9"/>
+
+  <!-- Share Arrow -->
+  <path d="M55 45 L65 45 L60 40 M60 55 L60 40 M55 50 L65 50"
+        stroke="#fbbf24"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+</svg>
