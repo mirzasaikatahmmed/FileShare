@@ -31,7 +31,7 @@ class AnalyticsController extends Controller
                 DB::raw('SUM(file_size) as total_size')
             )
             ->where('created_at', '>=', now()->subDays(30))
-            ->groupBy('date')
+            ->groupBy(DB::raw('DATE(created_at)'))
             ->orderBy('date')
             ->get();
 
@@ -41,7 +41,7 @@ class AnalyticsController extends Controller
                 DB::raw('COUNT(*) as count')
             )
             ->where('created_at', '>=', now()->subDays(30))
-            ->groupBy('date')
+            ->groupBy(DB::raw('DATE(created_at)'))
             ->orderBy('date')
             ->get();
 
@@ -62,12 +62,12 @@ class AnalyticsController extends Controller
 
         // Storage by month
         $storageByMonth = File::select(
-                DB::raw('YEAR(created_at) as year'),
-                DB::raw('MONTH(created_at) as month'),
+                DB::raw('EXTRACT(YEAR FROM created_at) as year'),
+                DB::raw('EXTRACT(MONTH FROM created_at) as month'),
                 DB::raw('SUM(file_size) as total_size'),
                 DB::raw('COUNT(*) as count')
             )
-            ->groupBy('year', 'month')
+            ->groupBy(DB::raw('EXTRACT(YEAR FROM created_at)'), DB::raw('EXTRACT(MONTH FROM created_at)'))
             ->orderBy('year', 'desc')
             ->orderBy('month', 'desc')
             ->take(12)

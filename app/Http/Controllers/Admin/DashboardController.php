@@ -34,7 +34,7 @@ class DashboardController extends Controller
                 DB::raw('COUNT(*) as count')
             )
             ->where('created_at', '>=', now()->subDays(30))
-            ->groupBy('date')
+            ->groupBy(DB::raw('DATE(created_at)'))
             ->orderBy('date')
             ->get();
 
@@ -44,7 +44,7 @@ class DashboardController extends Controller
                 DB::raw('COUNT(*) as count')
             )
             ->where('created_at', '>=', now()->subDays(30))
-            ->groupBy('date')
+            ->groupBy(DB::raw('DATE(created_at)'))
             ->orderBy('date')
             ->get();
 
